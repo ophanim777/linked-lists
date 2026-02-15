@@ -1,4 +1,12 @@
-append(value) {
+import Node from "./node.js";
+
+export default class LinkedList {
+  constructor() {
+    this._head = null;
+  }
+
+    
+    append(value) {
     const newNode = new Node(value);
 
     if (!this._head) {
