@@ -35,3 +35,14 @@ append(value) {
    head() {
     return this._head ? this._head.value : undefined;
   }
+
+   tail() {
+    if (!this._head) return undefined;
+
+    let current = this._head;
+    while (current.nextNode) {
+      current = current.nextNode;
+    }
+
+    return current.value;
+  }
