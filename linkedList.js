@@ -93,3 +93,17 @@ append(value) {
 
     return -1;
   }
+
+   toString() {
+    if (!this._head) return "";
+
+    let current = this._head;
+    let result = "";
+
+    while (current) {
+      result += `( ${current.value} ) -> `;
+      current = current.nextNode;
+    }
+
+    return result + "null";
+  }
