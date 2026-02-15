@@ -46,3 +46,18 @@ append(value) {
 
     return current.value;
   }
+
+  at(index) {
+    if (index < 0) return undefined;
+
+    let current = this._head;
+    let count = 0;
+
+    while (current) {
+      if (count === index) return current.value;
+      current = current.nextNode;
+      count++;
+    }
+
+    return undefined;
+  }
