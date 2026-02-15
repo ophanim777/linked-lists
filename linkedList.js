@@ -61,3 +61,11 @@ append(value) {
 
     return undefined;
   }
+
+   pop() {
+    if (!this._head) return undefined;
+
+    const value = this._head.value;
+    this._head = this._head.nextNode;
+    return value;
+  }
