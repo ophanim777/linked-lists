@@ -19,3 +19,15 @@ append(value) {
     newNode.nextNode = this._head;
     this._head = newNode;
   }
+
+  size() {
+    let count = 0;
+    let current = this._head;
+
+    while (current) {
+      count++;
+      current = current.nextNode;
+    }
+
+    return count;
+  }
