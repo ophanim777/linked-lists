@@ -31,3 +31,7 @@ append(value) {
 
     return count;
   }
+
+   head() {
+    return this._head ? this._head.value : undefined;
+  }
