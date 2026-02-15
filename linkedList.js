@@ -13,3 +13,9 @@ append(value) {
 
     current.nextNode = newNode;
   }
+
+   prepend(value) {
+    const newNode = new Node(value);
+    newNode.nextNode = this._head;
+    this._head = newNode;
+  }
