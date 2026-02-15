@@ -107,3 +107,46 @@ append(value) {
 
     return result + "null";
   }
+
+   insertAt(index, ...values) {
+    if (index < 0 || index > this.size()) {
+      throw new RangeError("Index out of bounds");
+    }
+
+    if (values.length === 0) return;
+
+    if (index === 0) {
+      for (let i = values.length - 1; i >= 0; i--) {
+        this.prepend(values[i]);
+      }
+      return;
+    }
+
+    let current = this._head;
+    let count = 0;
+
+    while (count < index - 1) {
+      current = current.nextNode;
+      count++;
+    }
+
+    const nextNode = current.nextNode;
+
+    let firstNewNode = null;
+    let lastNewNode = null;
+
+    values.forEach((value) => {
+      const newNode = new Node(value);
+
+      if (!firstNewNode) {
+        firstNewNode = newNode;
+      } else {
+        lastNewNode.nextNode = newNode;
+      }
+
+      lastNewNode = newNode;
+    });
+
+    current.nextNode = firstNewNode;
+    lastNewNode.nextNode = nextNode;
+  }
