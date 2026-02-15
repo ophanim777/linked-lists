@@ -150,3 +150,27 @@ append(value) {
     current.nextNode = firstNewNode;
     lastNewNode.nextNode = nextNode;
   }
+
+  removeAt(index) {
+    if (index < 0 || index >= this.size()) {
+      throw new RangeError("Index out of bounds");
+    }
+
+    if (index === 0) {
+      return this.pop();
+    }
+
+    let current = this._head;
+    let count = 0;
+
+    while (count < index - 1) {
+      current = current.nextNode;
+      count++;
+    }
+
+    const removedValue = current.nextNode.value;
+    current.nextNode = current.nextNode.nextNode;
+
+    return removedValue;
+  }
+}
