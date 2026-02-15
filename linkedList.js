@@ -69,3 +69,14 @@ append(value) {
     this._head = this._head.nextNode;
     return value;
   }
+  
+  contains(value) {
+    let current = this._head;
+
+    while (current) {
+      if (current.value === value) return true;
+      current = current.nextNode;
+    }
+
+    return false;
+  }
